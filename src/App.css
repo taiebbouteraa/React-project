@@ -3,6 +3,15 @@
     display: flex;
     justify-content: center;
 }
+.phone-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5vw;
+}
+.phone-vid {
+    text-align: center;
+}
 /*--------------------phone specs end----------------------*/
 /*--------------------filter btns start----------------------*/
 .brand-btns {
@@ -37,7 +46,7 @@ img.card-img-top {
 button.card-btn {
     width: 80px;
     font-size: smaller;
-    padding: 10px 0;
+    padding: 7px 0;
 }
 .card-btns {
     display: flex;
