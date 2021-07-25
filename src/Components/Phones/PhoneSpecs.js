@@ -16,13 +16,13 @@ const PhoneSpecs = ({ phone, match }) => {
                             <Card.Title>{el.name}</Card.Title>
                         </Card.Body>
                         <ListGroup className="list-group-flush">
-                            <ListGroupItem>Brand : <span>{el.brand}</span></ListGroupItem>
-                            <ListGroupItem>Main camera : <span>{el.mainCamera}</span> MP</ListGroupItem>
-                            <ListGroupItem>Front camera : <span>{el.frontCamera}</span> MP</ListGroupItem>
-                            <ListGroupItem>RAM : <span>{el.RAM}</span> MP</ListGroupItem>
-                            <ListGroupItem>Storage : <span>{el.storage}</span> MP</ListGroupItem>
-                            <ListGroupItem>Battery : <span>{el.battery}</span> mAh</ListGroupItem>
-                            <ListGroupItem>Price : <span>{el.price}</span> $</ListGroupItem>
+                            <ListGroupItem>Brand : <span style={{ color: 'red', fontFamily: 'cursive', fontWeight: 'bolder' }}>{el.brand}</span></ListGroupItem>
+                            <ListGroupItem>Main camera : <span style={{ color: 'red', fontFamily: 'cursive', fontWeight: 'bolder' }}>{el.mainCamera} MP</span> </ListGroupItem>
+                            <ListGroupItem>Front camera : <span style={{ color: 'red', fontFamily: 'cursive', fontWeight: 'bolder' }}>{el.frontCamera} MP</span></ListGroupItem>
+                            <ListGroupItem>RAM : <span style={{ color: 'red', fontFamily: 'cursive', fontWeight: 'bolder' }}>{el.RAM} MP</span> </ListGroupItem>
+                            <ListGroupItem>Storage : <span style={{ color: 'red', fontFamily: 'cursive', fontWeight: 'bolder' }}>{el.storage} MP</span></ListGroupItem>
+                            <ListGroupItem>Battery : <span style={{ color: 'red', fontFamily: 'cursive', fontWeight: 'bolder' }}>{el.battery} mAh</span></ListGroupItem>
+                            <ListGroupItem>Price : <span style={{ color: 'red', fontFamily: 'cursive', fontWeight: 'bolder' }}>{el.price} $</span></ListGroupItem>
                         </ListGroup>
                         <Button>Buy Now</Button>
                     </Card></div>
