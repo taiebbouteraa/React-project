@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import { useSelector } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
+import AllPhones from './Components/AllPhones';
+import Footer from './Components/Footer';
+import PhoneSpecs from './Components/PhoneSpecs';
 
 function App() {
+  const { phones } = useSelector(state => state)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' render={() => <AllPhones />} />
+          <Route path='/specs/:name' render={(props) =>
+            <PhoneSpecs phone={phones} {...props} />} />
+          {/* <AllPhones /> */}
+        </Switch>
+      </BrowserRouter>
+      {/* <PhoneSpecs /> */}
+      <Footer />
+
+    </>
   );
 }
 
