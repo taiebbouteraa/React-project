@@ -1,4 +1,4 @@
-import { BUY_ITEM, ITEM_PLUS, REMOVE_ITEM } from "./actionTypes"
+import { BUY_ITEM, FILTER_APPLE, FILTER_ASUS, FILTER_HUAWEI, FILTER_LENOVO, FILTER_SAMSUNG, ITEM_PLUS, REMOVE_ITEM } from "./actionTypes"
 
 const inisialState = {
     phones: [{
@@ -83,7 +83,7 @@ const inisialState = {
         id: 7,
         phoneImage: './images/huawei-p40-pro.jpg',
         brand: 'Huawei',
-        name: 'P 40 Pro',
+        name: 'Huawei P 40 Pro',
         mainCamera: 50,
         frontCamera: 32,
         RAM: 6,
@@ -96,7 +96,7 @@ const inisialState = {
         id: 8,
         phoneImage: './images/huawei-p30-pro.jpg',
         brand: 'Huawei',
-        name: 'P 30 Pro',
+        name: 'Huawei P 30 Pro',
         mainCamera: 40,
         frontCamera: 32,
         RAM: 8,
@@ -109,7 +109,7 @@ const inisialState = {
         id: 9,
         phoneImage: './images/asus-zenfone-8.jpg',
         brand: 'Asus',
-        name: 'Zenfone 8',
+        name: 'Asus Zenfone 8',
         mainCamera: 64,
         frontCamera: 12,
         RAM: 12,
@@ -122,7 +122,7 @@ const inisialState = {
         id: 10,
         phoneImage: './images/asus-rog-phone-5-ultimate.jpg',
         brand: 'Asus',
-        name: 'ROG Phone 5 Ultimate',
+        name: 'Asus ROG Phone 5 Ultimate',
         mainCamera: 64,
         frontCamera: 24,
         RAM: 18,
@@ -135,7 +135,7 @@ const inisialState = {
         id: 11,
         phoneImage: './images/lenovo-legion-2-pro-phone-duel2-1.jpg',
         brand: 'Lenovo',
-        name: 'Legion 2 Pro',
+        name: 'Lenovo Legion 2 Pro',
         mainCamera: 64,
         frontCamera: 44,
         RAM: 12,
@@ -148,7 +148,7 @@ const inisialState = {
         id: 12,
         phoneImage: './images/lenovo-legion-.jpg',
         brand: 'Lenovo',
-        name: 'Legion Pro',
+        name: 'Lenovo Legion Pro',
         mainCamera: 64,
         frontCamera: 20,
         RAM: 16,
@@ -163,7 +163,7 @@ const inisialState = {
         id: 8,
         phoneImage: './images/huawei-p30-pro.jpg',
         brand: 'Huawei',
-        name: 'P 30 Pro',
+        name: 'Huawei P 30 Pro',
         price: 1149,
         counter: 1,
     }, {
@@ -173,14 +173,23 @@ const inisialState = {
         name: 'Samsung Galaxy S21 Ultra',
         price: 1199,
         counter: 1,
-    }]
+    }],
+    filters: {
+        samsung: false,
+        apple: false,
+        huawei: false,
+        asus: false,
+        lenovo: false,
+    }
 }
 
 const reducers = (state = inisialState, { type, payload }) => {
     switch (type) {
         case ITEM_PLUS:
             return {
-                // ...state, shop: state.shop.map((el) => el.id === payload ? { ...el, counter: counter + 1 } : el)
+                //  counter doesnt change
+                // ...state, shop: shop.counter = shop.counter + 1
+                ...state, shop: state.shop.map((el) => el.id === payload ? { ...el, counter: el.counter + 1 } : el)
             }
         case BUY_ITEM:
             return {
@@ -190,7 +199,61 @@ const reducers = (state = inisialState, { type, payload }) => {
             return {
                 ...state, shop: state.shop.filter((el) => el.id !== payload)
             }
-
+        case FILTER_SAMSUNG:
+            return {
+                ...state, filters: {
+                    ...state.filters,
+                    samsung: !state.filters.samsung,
+                    apple: false,
+                    huawei: false,
+                    asus: false,
+                    lenovo: false,
+                }
+            }
+        case FILTER_APPLE:
+            return {
+                ...state, filters: {
+                    ...state.filters,
+                    samsung: false,
+                    apple: !state.filters.apple,
+                    huawei: false,
+                    asus: false,
+                    lenovo: false,
+                }
+            }
+        case FILTER_HUAWEI:
+            return {
+                ...state, filters: {
+                    ...state.filters,
+                    samsung: false,
+                    apple: false,
+                    huawei: !state.filters.huawei,
+                    asus: false,
+                    lenovo: false,
+                }
+            }
+        case FILTER_ASUS:
+            return {
+                ...state, filters: {
+                    ...state.filters,
+                    samsung: false,
+                    apple: false,
+                    huawei: false,
+                    asus: !state.filters.asus,
+                    lenovo: false,
+                }
+            }
+        case FILTER_LENOVO:
+            return {
+                ...state, filters: {
+                    ...state.filters,
+                    samsung: false,
+                    apple: false,
+                    huawei: false,
+                    asus: false,
+                    lenovo: !state.filters.lenovo,
+                }
+            }
         default:
             return state
     }
