@@ -1,3 +1,20 @@
+/*--------------------shopping cart start----------------------*/
+.shop-phones {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: auto;
+}
+table.items-head.table {
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+/*--------------------shopping cart end----------------------*/
 /*--------------------nav bar start----------------------*/
 .navbar-collapse{
   justify-content: space-between;

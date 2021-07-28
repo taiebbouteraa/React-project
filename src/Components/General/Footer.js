@@ -12,9 +12,9 @@ const Footer = () => {
                     <div className="col-4 col-md">
                         <h5>Overview</h5>
                         <ul className="list-unstyled text-small">
-                            <li><a className="text-muted" href="#">What's new</a></li>
-                            <li><a className="text-muted" href="#">Contact us</a></li>
-                            <li><a className="text-muted" href="#">Blogs</a></li>
+                            <li><a className="text-muted" href="https://www.google.com">What's new</a></li>
+                            <li><a className="text-muted" href="https://www.google.com">Contact us</a></li>
+                            <li><a className="text-muted" href="https://www.google.com">Blogs</a></li>
                         </ul>
                     </div>
                     <div className="col-4 col-md resources">
@@ -29,9 +29,9 @@ const Footer = () => {
                     <div className="col-4 col-md about">
                         <h5>About</h5>
                         <ul className="list-unstyled text-small">
-                            <li><a className="text-muted" href="#">Bands</a></li>
-                            <li><a className="text-muted" href="#">Our stores</a></li>
-                            <li><a className="text-muted" href="#">More</a></li>
+                            <li><a className="text-muted" href="https://www.google.com">Bands</a></li>
+                            <li><a className="text-muted" href="https://www.google.com">Our stores</a></li>
+                            <li><a className="text-muted" href="https://www.google.com">More</a></li>
                         </ul>
                     </div>
                 </div>

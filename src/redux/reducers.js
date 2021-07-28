@@ -1,4 +1,4 @@
-import { BUY_ITEM } from "./actionTypes"
+import { BUY_ITEM, ITEM_PLUS, REMOVE_ITEM } from "./actionTypes"
 
 const inisialState = {
     phones: [{
@@ -13,6 +13,7 @@ const inisialState = {
         battery: 5000,
         price: 1199,
         trailer: 'https://www.youtube.com/watch?v=dhAmMXCBIcg',
+        counter: 1,
     }, {
         id: 2,
         phoneImage: './images/samsung-a52.jpg',
@@ -25,6 +26,7 @@ const inisialState = {
         battery: 4500,
         price: 465,
         trailer: 'https://www.youtube.com/watch?v=1DgyftEnp9o',
+        counter: 1,
     }, {
         id: 3,
         phoneImage: './images/samsung-m21.jpg',
@@ -37,6 +39,7 @@ const inisialState = {
         battery: 6000,
         price: 365,
         trailer: 'https://www.youtube.com/watch?v=x5noEryhCcc',
+        counter: 1,
     }, {
         id: 4,
         phoneImage: './images/apple-iphone-12-pro-max-.jpg',
@@ -49,6 +52,7 @@ const inisialState = {
         battery: 3687,
         price: 1399,
         trailer: 'https://www.youtube.com/watch?v=TfRtC5cQCpA',
+        counter: 1,
     }, {
         id: 5,
         phoneImage: './images/apple-iphone-12-pro--.jpg',
@@ -61,6 +65,7 @@ const inisialState = {
         battery: 2815,
         price: 1299,
         trailer: 'https://www.youtube.com/watch?v=xXPE6RgAMOI',
+        counter: 1,
     }, {
         id: 6,
         phoneImage: './images/apple-iphone-11.jpg',
@@ -73,6 +78,7 @@ const inisialState = {
         battery: 3110,
         price: 749,
         trailer: 'https://www.youtube.com/watch?v=5b9b-iCQFa4',
+        counter: 1,
     }, {
         id: 7,
         phoneImage: './images/huawei-p40-pro.jpg',
@@ -85,6 +91,7 @@ const inisialState = {
         battery: 4200,
         price: 859,
         trailer: 'https://www.youtube.com/watch?v=hQcH_K_2Mpw',
+        counter: 1,
     }, {
         id: 8,
         phoneImage: './images/huawei-p30-pro.jpg',
@@ -97,6 +104,7 @@ const inisialState = {
         battery: 4200,
         price: 1149,
         trailer: 'https://www.youtube.com/watch?v=mbV51222jwE',
+        counter: 1,
     }, {
         id: 9,
         phoneImage: './images/asus-zenfone-8.jpg',
@@ -109,6 +117,7 @@ const inisialState = {
         battery: 4000,
         price: 848,
         trailer: 'https://www.youtube.com/watch?v=bMCH6giHePA',
+        counter: 1,
     }, {
         id: 10,
         phoneImage: './images/asus-rog-phone-5-ultimate.jpg',
@@ -121,6 +130,7 @@ const inisialState = {
         battery: 6000,
         price: 848,
         trailer: 'https://www.youtube.com/watch?v=KZuSI6hsa2Q',
+        counter: 1,
     }, {
         id: 11,
         phoneImage: './images/lenovo-legion-2-pro-phone-duel2-1.jpg',
@@ -133,6 +143,7 @@ const inisialState = {
         battery: 5500,
         price: 878,
         trailer: 'https://www.youtube.com/watch?v=-7TJ19vFyLA',
+        counter: 1,
     }, {
         id: 12,
         phoneImage: './images/lenovo-legion-.jpg',
@@ -145,6 +156,7 @@ const inisialState = {
         battery: 5000,
         price: 579,
         trailer: 'https://www.youtube.com/watch?v=aUYW4DyUJNk',
+        counter: 1,
     }
     ],
     shop: [{
@@ -152,21 +164,31 @@ const inisialState = {
         phoneImage: './images/huawei-p30-pro.jpg',
         brand: 'Huawei',
         name: 'P 30 Pro',
-        mainCamera: 40,
-        frontCamera: 32,
-        RAM: 8,
-        storage: 256,
-        battery: 4200,
         price: 1149,
-        trailer: 'https://www.youtube.com/watch?v=mbV51222jwE',
+        counter: 1,
+    }, {
+        id: 1,
+        phoneImage: './images/samsung-s21.jpg',
+        brand: 'Samsung',
+        name: 'Samsung Galaxy S21 Ultra',
+        price: 1199,
+        counter: 1,
     }]
 }
 
 const reducers = (state = inisialState, { type, payload }) => {
     switch (type) {
+        case ITEM_PLUS:
+            return {
+                // ...state, shop: state.shop.map((el) => el.id === payload ? { ...el, counter: counter + 1 } : el)
+            }
         case BUY_ITEM:
             return {
-
+                ...state, shop: [...state.shop, payload]
+            }
+        case REMOVE_ITEM:
+            return {
+                ...state, shop: state.shop.filter((el) => el.id !== payload)
             }
 
         default:
