@@ -1,3 +1,21 @@
+/*--------------------compaire section start----------------------*/
+h1.compair-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.container{
+  text-align: center;
+}
+.col, .col-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+}
+div#specIMG {
+    height: 212px;
+}
+/*--------------------compaire section end----------------------*/
 /*--------------------shopping cart start----------------------*/
 .shop-phones {
     display: flex;
@@ -14,10 +32,32 @@ table.items-head.table {
     justify-content: center;
     margin: auto;
 }
+div#shop-total-price {
+    text-align: center;
+}
 /*--------------------shopping cart end----------------------*/
 /*--------------------nav bar start----------------------*/
 .navbar-collapse{
   justify-content: space-between;
+}
+.nav-home {
+    display: flex;
+}
+.mr-auto.my-2.my-lg-0.navbar-nav.navbar-nav-scroll {
+    margin: auto;
+}
+.nav-store {
+    position: absolute;
+    right: 0%;
+}
+.search-bar {
+    width: 300px;
+}
+.css-2b097c-container {
+    width: 300px;
+}
+.search-link {
+    display: flex;
 }
 /*--------------------nav bar end----------------------*/
 /*--------------------home page start----------------------*/
@@ -45,6 +85,10 @@ table.items-head.table {
 }
 .phone-vid {
     text-align: center;
+}
+.specs-btns {
+    display: flex;
+    justify-content: space-evenly;
 }
 /*--------------------phone specs end----------------------*/
 /*--------------------filter btns start----------------------*/

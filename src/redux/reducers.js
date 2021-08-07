@@ -1,4 +1,4 @@
-import { BUY_ITEM, FILTER_APPLE, FILTER_ASUS, FILTER_HUAWEI, FILTER_LENOVO, FILTER_SAMSUNG, ITEM_PLUS, REMOVE_ITEM } from "./actionTypes"
+import { ADD_COMP_PHONE, BUY_ITEM, CANCLE_SHOP, FILTER_APPLE, FILTER_ASUS, FILTER_HUAWEI, FILTER_LENOVO, FILTER_SAMSUNG, ITEM_MINUS, ITEM_PLUS, REMOVE_COMP_PHONE_1, REMOVE_COMP_PHONE_2, REMOVE_ITEM } from "./actionTypes"
 
 const inisialState = {
     phones: [{
@@ -165,32 +165,64 @@ const inisialState = {
         brand: 'Huawei',
         name: 'Huawei P 30 Pro',
         price: 1149,
-        counter: 1,
+        counter: 2,
     }, {
         id: 1,
         phoneImage: './images/samsung-s21.jpg',
         brand: 'Samsung',
         name: 'Samsung Galaxy S21 Ultra',
         price: 1199,
-        counter: 1,
+        counter: 3,
     }],
     filters: {
         samsung: false,
         apple: false,
         huawei: false,
-        asus: false,
+        asus: true,
         lenovo: false,
-    }
+    },
+    comp1: {
+        phoneImage: '',
+        name: '',
+        mainCamera: '',
+        frontCamera: '',
+        RAM: '',
+        storage: '',
+        battery: '',
+        price: '',
+    },
+    comp2: {
+        phoneImage: './images/samsung-a52.jpg',
+        name: 'Samsung Galaxy A52',
+        mainCamera: 64,
+        frontCamera: 32,
+        RAM: 8,
+        storage: 128,
+        battery: 4500,
+        price: 465,
+    },
 }
 
 const reducers = (state = inisialState, { type, payload }) => {
     switch (type) {
+        //--------------------item number start----------------------
         case ITEM_PLUS:
             return {
                 //  counter doesnt change
                 // ...state, shop: shop.counter = shop.counter + 1
+                // ...state, shop: this.shop.counter = this.shop.counter + 1
+                // ...state, shop: { ...state.shop, counter: state.shop.counter = state.shop.counter + 1 }
                 ...state, shop: state.shop.map((el) => el.id === payload ? { ...el, counter: el.counter + 1 } : el)
+                // ...state.shop, counter: payload
             }
+        case ITEM_MINUS:
+            return {
+                //  counter doesnt change
+
+                ...state, shop: state.shop.map((el) => el.id === payload ? { ...el, counter: el.counter === 0 ? el.counter = 1 : el.counter - 1 } : el)
+            }
+        //----------------------item number end-------------------------
+        //--------------------add/remove item srat----------------------
         case BUY_ITEM:
             return {
                 ...state, shop: [...state.shop, payload]
@@ -199,6 +231,20 @@ const reducers = (state = inisialState, { type, payload }) => {
             return {
                 ...state, shop: state.shop.filter((el) => el.id !== payload)
             }
+        //------------------------------add/remove item end--------------------------------
+        //--------------------------shopping : cancle / buy  start ------------------------
+        case CANCLE_SHOP:
+            return {
+                ...state, shop: []
+                // ...state, shop: state.shop.filter((el) => el !== null)
+            }
+        // case BUY_ALL:
+        //     return {
+        //         ...state, shop: [],
+        //     }
+        //--------------------------shopping : cancle / buy  end------------------------
+
+        // -----------------------filters start-----------------------
         case FILTER_SAMSUNG:
             return {
                 ...state, filters: {
@@ -254,8 +300,55 @@ const reducers = (state = inisialState, { type, payload }) => {
                     lenovo: !state.filters.lenovo,
                 }
             }
+        // -----------------------filters end-----------------------
+        // -----------------------remove/add phone compair start-----------------------
+        case REMOVE_COMP_PHONE_1:
+            return {
+                ...state, comp1: {
+                    ...state.comp1,
+                    phoneImage: '',
+                    name: '',
+                    mainCamera: '',
+                    frontCamera: '',
+                    RAM: '',
+                    storage: '',
+                    battery: '',
+                    price: '',
+                }
+            }
+        case REMOVE_COMP_PHONE_2:
+            return {
+                ...state, comp2: {
+                    ...state.comp2,
+                    phoneImage: '',
+                    name: '',
+                    mainCamera: '',
+                    frontCamera: '',
+                    RAM: '',
+                    storage: '',
+                    battery: '',
+                    price: '',
+                }
+            }
+        case ADD_COMP_PHONE:
+            return {
+                // ...state, comp1: state.comp1.name === '' ? { ...state.comp1, ...payload }
+                //     : { ...state, comp2: state.comp2.name === '' } ? { ...state.comp1, ...payload }
+                //         : alert('Please remove a phone from the comparison table')
+                //-------------------------------------------------------
+                // ...state, comp1: state.comp1.name === '' ? { ...state.comp1, ...payload }
+                //     : state.comp2.name === '' ? { ...state.comp2, ...payload }
+                //         : alert('Please remove a phone from the comparison table')
+                //----------------------------------------------------------
+                
+
+
+
+    }
+
+        // -----------------------remove/add phone compair end-----------------------
         default:
-            return state
+return state
     }
 }
 

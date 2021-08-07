@@ -1,13 +1,12 @@
 import { Button } from 'react-bootstrap'
-import React, { useState } from 'react'
+import React from 'react'
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { buyItem } from '../../redux/actions'
+import { addCompPhone, buyItem } from '../../redux/actions'
 
 const PhoneSpecs = ({ phone, match }) => {
     let spec = phone.filter(el => el.name === match.params.name)
     const dispatch = useDispatch()
-
     return (
         <div >
             {spec.map(el => (<div className='phone-details'>
@@ -27,14 +26,26 @@ const PhoneSpecs = ({ phone, match }) => {
                             <ListGroupItem>Price : <span style={{ color: 'red', fontFamily: 'cursive', fontWeight: 'bolder' }}>{el.price} $</span></ListGroupItem>
                         </ListGroup>
 
-                        <Button onClick={() => dispatch(buyItem({
-                            id: el.id,
-                            phoneImage: el.phoneImage,
-                            brand: el.brand,
-                            name: el.name,
-                            price: el.price,
-                            counter: 1,
-                        }))}>Buy Now</Button>
+                        <div className='specs-btns'>
+                            <Button onClick={() => dispatch(buyItem({
+                                id: el.id,
+                                phoneImage: el.phoneImage,
+                                brand: el.brand,
+                                name: el.name,
+                                price: el.price,
+                                counter: 1,
+                            }))}>Buy Now</Button>
+                            <Button variant="outline-success" className='card-btn' onClick={() => dispatch(addCompPhone({
+                                phoneImage: el.phoneImage,
+                                name: el.name,
+                                mainCamera: el.mainCamera,
+                                frontCamera: el.frontCamera,
+                                RAM: el.RAM,
+                                storage: el.storage,
+                                battery: el.battery,
+                                price: el.price,
+                            }))}>Compaire</Button>
+                        </div>
                     </Card></div>
                 <div className='phone-vid'>
                     <h4>For further informations on the phone, watch the video below</h4>

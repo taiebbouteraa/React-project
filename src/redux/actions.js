@@ -1,4 +1,4 @@
-import { BUY_ITEM, FILTER_APPLE, FILTER_ASUS, FILTER_HUAWEI, FILTER_LENOVO, FILTER_SAMSUNG, ITEM_PLUS, REMOVE_ITEM, } from "./actionTypes";
+import { ADD_COMP_PHONE, BUY_ALL, BUY_ITEM, CANCLE_SHOP, FILTER_APPLE, FILTER_ASUS, FILTER_HUAWEI, FILTER_LENOVO, FILTER_SAMSUNG, ITEM_MINUS, ITEM_PLUS, REMOVE_COMP_PHONE_1, REMOVE_COMP_PHONE_2, REMOVE_ITEM, } from "./actionTypes";
 
 export const buyItem = (id) => {
     return {
@@ -9,7 +9,13 @@ export const buyItem = (id) => {
 export const itemPlus = (payload) => {
     return {
         type: ITEM_PLUS,
-        payload: payload
+        payload: payload,
+    };
+}
+export const itemMinus = (payload) => {
+    return {
+        type: ITEM_MINUS,
+        payload: payload,
     };
 }
 export const removeItem = (id) => {
@@ -47,4 +53,30 @@ export const filterLenovo = (payload) => {
         type: FILTER_LENOVO,
         payload: payload,
     };
+}
+export const cancleShop = () => {
+    return {
+        type: CANCLE_SHOP,
+    }
+}
+export const buyAll = () => {
+    return {
+        type: BUY_ALL,
+    }
+}
+export const removeCompPhone1 = () => {
+    return {
+        type: REMOVE_COMP_PHONE_1,
+    }
+}
+export const removeCompPhone2 = () => {
+    return {
+        type: REMOVE_COMP_PHONE_2,
+    }
+}
+export const addCompPhone = (payload) => {
+    return {
+        type: ADD_COMP_PHONE,
+        payload: payload
+    }
 }

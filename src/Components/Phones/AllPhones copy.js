@@ -41,7 +41,7 @@ const AllPhones = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-1" id='specIMG'>
-                        Phone
+                        specs
                     </div>
                     <div className="col">
                         <img src={comp1.phoneImage} alt={comp1.name} />
