@@ -6,17 +6,14 @@ import { buyItem, addCompPhone } from '../../redux/actions'
 
 const PhoneCard = ({ phone }) => {
     const dispatch = useDispatch()
-    // compair phones
-    // const [compPhone, setCompPhone] = useState({
-    //     phoneImage: 'test',
-    //     name: 'test',
-    //     mainCamera: 'test',
-    //     frontCamera: 'test',
-    //     RAM: 'test',
-    //     storage: 'test',
-    //     battery: 'test',
-    //     price: 'test',
-    // })
+    let payload = {
+        id: phone.id,
+        phoneImage: phone.phoneImage,
+        brand: phone.brand,
+        name: phone.name,
+        price: phone.price,
+        counter: 1,
+    }
 
     return (
         <div className='individual-phone'>
@@ -28,14 +25,7 @@ const PhoneCard = ({ phone }) => {
                         {phone.price} $
                     </Card.Text>
                     <div className='card-btns'>
-                        <Button variant="success" className='card-btn' onClick={() => dispatch(buyItem({
-                            id: phone.id,
-                            phoneImage: phone.phoneImage,
-                            brand: phone.brand,
-                            name: phone.name,
-                            price: phone.price,
-                            counter: 1,
-                        }))} >Buy</Button>
+                        <Button variant="success" className='card-btn' onClick={() => dispatch(buyItem(payload))} >Buy</Button>
                         <Button variant="primary" className='card-btn' onClick={() => dispatch(addCompPhone({
                             phoneImage: phone.phoneImage,
                             name: phone.name,

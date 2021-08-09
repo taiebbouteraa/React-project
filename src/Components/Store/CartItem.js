@@ -10,12 +10,14 @@ const CartItem = ({ item }) => {
     const dispatch = useDispatch()
     const [count, setCount] = useState(item.counter)
     const inc = () => {
-        setCount(count + 1)
+        // setCount(count + 1)
         dispatch(itemPlus(item.counter))
     }
-    const dec = () => count === 1 ? setCount(1) : setCount(count - 1)
+    const dec = () => {
+        // setCount(count - 1)
+        dispatch(itemMinus(item.counter))
+    }
     const itemTotal = count * item.price
-    console.log(item.counter, count)
     // const itemTotal = item.counter * item.price
     return (
         <div className='shop-items'>
@@ -27,16 +29,14 @@ const CartItem = ({ item }) => {
                         <td style={{ width: 200 }}>{item.name}</td>
                         <td style={{ width: 200 }}>{item.price} $</td>
                         <td style={{ width: 200 }}>
-                            {/* <Button onClick={() => dispatch(itemMinus())} >-</Button> */}
+
                             <Button onClick={() => dec()}>-</Button>
                             <div>{item.counter}</div>
-                            {/* <div>{count}</div> */}
-                            {/* <Button onClick={() => dispatch(itemPlus())}>+</Button> */}
+
                             <Button onClick={() => inc()}>+</Button>
                         </td>
                         <td style={{ width: 200 }}>{item.price * item.counter} $</td>
-                        {/* <td style={{ width: 200 }}>{item.price * count} $</td> */}
-                        {/* <td style={{ width: 200 }}>{itemTotal} $</td> */}
+
                         <td style={{ width: 200 }}><Button variant="danger" onClick={() => dispatch(removeItem(item.id))}>Remove</Button></td>
                     </tr>
                 </tbody>
