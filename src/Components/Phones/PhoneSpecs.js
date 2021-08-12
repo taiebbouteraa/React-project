@@ -45,10 +45,11 @@ const PhoneSpecs = ({ phone, match }) => {
                                 price: el.price,
                             }))}>Compaire</Button>
                         </div>
-                    </Card></div>
+                    </Card>
+                </div>
                 <div className='phone-vid'>
                     <h4>For further informations on the phone, watch the video below</h4>
-                    < iframe width="720" height="480" src={el.trailer.replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/')} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title={el.name}></iframe>
+                    < iframe width="720" height="480" src={el.trailer.replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/')} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title={el.name}></iframe>
                 </div>
             </div>))}
         </div>

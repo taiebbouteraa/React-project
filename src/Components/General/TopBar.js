@@ -13,7 +13,7 @@ const TopBar = () => {
             <div >
                 <Navbar bg="light" expand="lg">
                     <Navbar.Brand >
-                        <img src='./images/home/logo.png' alt='LOGO' style={{ maxHeight: 50, marginLeft: '2rem' }} />
+                        <img src='../images/home/logo.png' alt='LOGO' style={{ maxHeight: 50, marginLeft: '2rem' }} />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
