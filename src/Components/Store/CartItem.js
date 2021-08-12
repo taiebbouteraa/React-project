@@ -10,14 +10,20 @@ const CartItem = ({ item }) => {
     const dispatch = useDispatch()
     const [count, setCount] = useState(item.counter)
     const inc = () => {
-        // setCount(count + 1)
-        dispatch(itemPlus(item.counter))
+        setCount(count + 1)
+        dispatch(itemPlus({
+            counter: count,
+            id: item.id
+        }))
     }
     const dec = () => {
-        // setCount(count - 1)
-        dispatch(itemMinus(item.counter))
+        setCount(count - 1)
+        dispatch(itemMinus({
+            counter: count,
+            id: item.id
+        }))
     }
-    const itemTotal = count * item.price
+    // const itemTotal = count * item.price
     // const itemTotal = item.counter * item.price
     return (
         <div className='shop-items'>

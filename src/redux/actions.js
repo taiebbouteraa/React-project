@@ -6,10 +6,10 @@ export const buyItem = (id) => {
         payload: id,
     };
 }
-export const itemPlus = (payload) => {
+export const itemPlus = (id) => {
     return {
         type: ITEM_PLUS,
-        payload: payload,
+        payload: id,
     };
 }
 export const itemMinus = (payload) => {

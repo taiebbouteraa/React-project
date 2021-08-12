@@ -184,7 +184,7 @@ const inisialState = {
         battery: 4500,
         price: 465,
         trailer: 'https://www.youtube.com/watch?v=1DgyftEnp9o',
-        counter: 1,
+        counter: 2,
     },],
     filters: {
         samsung: false,
@@ -222,17 +222,17 @@ const reducers = (state = inisialState, { type, payload }) => {
         //--------------------item number start----------------------
         case ITEM_PLUS:
             return {
-                ...state, shop: state.shop.map((el) => el.id === el.id ? { ...el, counter: el.counter + 1 } : el)
+                ...state, shop: state.shop.map((el) => el.id === payload.id ? { ...el, counter: payload.counter } : el)
             }
         case ITEM_MINUS:
             return {
-                ...state, shop: state.shop.map((el) => el.id === el.id ? { ...el, counter: el.counter === 1 ? el.counter = 1 : el.counter - 1 } : el)
+                ...state, shop: state.shop.map((el) => el.id === payload.id ? { ...el, counter: el.counter === 1 ? el.counter = 1 : payload.counter } : el)
             }
         //----------------------item number end-------------------------
         //--------------------add/remove item srat----------------------
         case BUY_ITEM:
             return {
-                ...state, shop: state.shop.find(el => el.id === payload.id) ? state.shop.map((el) => el.id === el.id ? { ...el, counter: el.counter + 1 } : el)
+                ...state, shop: state.shop.find(el => el.id === payload.id) ? state.shop.map((el) => el.id === payload.id ? { ...el, counter: el.counter + 1 } : el)
                     : [...state.shop, payload]
 
                 // ...state, shop: [...state.shop, payload]
