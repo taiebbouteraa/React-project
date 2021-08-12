@@ -25,7 +25,6 @@ const PhoneSpecs = ({ phone, match }) => {
                             <ListGroupItem>Battery : <span style={{ color: 'red', fontFamily: 'cursive', fontWeight: 'bolder' }}>{el.battery} mAh</span></ListGroupItem>
                             <ListGroupItem>Price : <span style={{ color: 'red', fontFamily: 'cursive', fontWeight: 'bolder' }}>{el.price} $</span></ListGroupItem>
                         </ListGroup>
-
                         <div className='specs-btns'>
                             <Button onClick={() => dispatch(buyItem({
                                 id: el.id,

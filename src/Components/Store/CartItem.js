@@ -1,12 +1,10 @@
 import React from 'react'
 import { Button, Table } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { itemMinus, itemPlus, removeItem } from '../../redux/actions'
 
 
 const CartItem = ({ item }) => {
-
-    const { counter } = useSelector(state => state)
     const dispatch = useDispatch()
     const inc = () => {
         dispatch(itemPlus({
@@ -31,14 +29,11 @@ const CartItem = ({ item }) => {
                         <td style={{ width: 200 }}>{item.name}</td>
                         <td style={{ width: 200 }}>{item.price} $</td>
                         <td style={{ width: 200 }}>
-
                             <Button onClick={() => dec()}>-</Button>
                             <div>{item.counter}</div>
-
                             <Button onClick={() => inc()}>+</Button>
                         </td>
                         <td style={{ width: 200 }}>{item.price * item.counter} $</td>
-
                         <td style={{ width: 200 }}><Button variant="danger" onClick={() => dispatch(removeItem(item.id))}>Remove</Button></td>
                     </tr>
                 </tbody>

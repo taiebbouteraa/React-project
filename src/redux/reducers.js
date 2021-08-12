@@ -159,38 +159,12 @@ const inisialState = {
         counter: 1,
     }
     ],
-    shop: [{
-        id: Math.random(),
-        phoneImage: './images/samsung-s21.jpg',
-        brand: 'Samsung',
-        name: 'Samsung Galaxy S21 Ultra',
-        mainCamera: 108,
-        frontCamera: 40,
-        RAM: 16,
-        storage: 128,
-        battery: 5000,
-        price: 1199,
-        trailer: 'https://www.youtube.com/watch?v=dhAmMXCBIcg',
-        counter: 1,
-    }, {
-        id: Math.random(),
-        phoneImage: './images/samsung-a52.jpg',
-        brand: 'Samsung',
-        name: 'Samsung Galaxy A52',
-        mainCamera: 64,
-        frontCamera: 32,
-        RAM: 8,
-        storage: 128,
-        battery: 4500,
-        price: 465,
-        trailer: 'https://www.youtube.com/watch?v=1DgyftEnp9o',
-        counter: 2,
-    },],
+    shop: [],
     filters: {
         samsung: false,
         apple: false,
         huawei: false,
-        asus: true,
+        asus: false,
         lenovo: false,
     },
     comp: {
@@ -234,8 +208,6 @@ const reducers = (state = inisialState, { type, payload }) => {
             return {
                 ...state, shop: state.shop.find(el => el.id === payload.id) ? state.shop.map((el) => el.id === payload.id ? { ...el, counter: el.counter + 1 } : el)
                     : [...state.shop, payload]
-
-
             }
         case REMOVE_ITEM:
             return {
@@ -343,20 +315,14 @@ const reducers = (state = inisialState, { type, payload }) => {
             }
         case ADD_COMP_PHONE:
             return {
-                // ...state, comp1: state.comp1.name === '' ? { ...state.comp1, ...payload }
-                //     : { ...state, comp2: state.comp2.name === '' } ? { ...state.comp2, ...payload }
-                //         : alert('Please remove a phone from the comparison table')
-                //-------------------------------------------------------
-                // ...state, comp1: state.comp1.name === '' ? { ...state.comp1, ...payload }
-                //     : state.comp2.name === '' ? { ...state.comp2, ...payload }
-                //         : alert('Please remove a phone from the comparison table')
-                //----------------------------------------------------------
                 ...state, comp:
                     state.comp.comp1.phoneImage === '' ? { ...state.comp, comp1: payload }
                         : state.comp.comp2.phoneImage === '' ? { ...state.comp, comp2: payload }
-                            : alert('Please remove a phone from the comparison table')
+                            : {
+                                ...state.comp, comp: state.comp &&
+                                    alert('Please remove a phone from the comparison table')
+                            }
             }
-
         // -----------------------remove/add phone compair end-----------------------
         default:
             return state

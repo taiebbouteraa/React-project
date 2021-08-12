@@ -23,7 +23,6 @@ const AllPhones = () => {
                     : !filters.samsung && !filters.apple && !filters.huawei && !filters.asus && filters.lenovo
                         ? list = phones.map((el) => (<PhoneCard phone={el} key={el.id} />)).filter((el) => el.props.phone.brand === 'Lenovo')
                         : list = phones.map((el) => (<PhoneCard phone={el} key={el.id} />))
-    //compair vars
 
     return (
         <>
