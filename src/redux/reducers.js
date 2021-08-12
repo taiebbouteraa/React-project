@@ -205,14 +205,14 @@ const inisialState = {
             price: '',
         },
         comp2: {
-            phoneImage: '123',
-            name: '456',
-            mainCamera: '6546456',
-            frontCamera: '456456',
-            RAM: '456',
-            storage: '654',
-            battery: '456',
-            price: '456',
+            phoneImage: '',
+            name: '',
+            mainCamera: '',
+            frontCamera: '',
+            RAM: '',
+            storage: '',
+            battery: '',
+            price: '',
         },
     }
 }
@@ -353,9 +353,8 @@ const reducers = (state = inisialState, { type, payload }) => {
                 //----------------------------------------------------------
                 ...state, comp:
                     state.comp.comp1.phoneImage === '' ? { ...state.comp, comp1: payload }
-                        : state.comp.com2.phoneImage === '' ? { ...state.comp, comp2: payload }
+                        : state.comp.comp2.phoneImage === '' ? { ...state.comp, comp2: payload }
                             : alert('Please remove a phone from the comparison table')
-
             }
 
         // -----------------------remove/add phone compair end-----------------------
