@@ -235,7 +235,6 @@ const reducers = (state = inisialState, { type, payload }) => {
                 ...state, shop: state.shop.find(el => el.id === payload.id) ? state.shop.map((el) => el.id === payload.id ? { ...el, counter: el.counter + 1 } : el)
                     : [...state.shop, payload]
 
-                // ...state, shop: [...state.shop, payload]
 
             }
         case REMOVE_ITEM:
@@ -248,10 +247,6 @@ const reducers = (state = inisialState, { type, payload }) => {
             return {
                 ...state, shop: []
             }
-        // case BUY_ALL:
-        //     return {
-        //         ...state, shop: [],
-        //     }
         //--------------------------shopping : cancle / buy  end------------------------
 
         // -----------------------filters start-----------------------

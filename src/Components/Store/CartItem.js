@@ -1,30 +1,26 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { itemMinus, itemPlus, removeItem } from '../../redux/actions'
 
 
 const CartItem = ({ item }) => {
-    // const { shop } = useSelector(state => state)
+
     const { counter } = useSelector(state => state)
     const dispatch = useDispatch()
-    const [count, setCount] = useState(item.counter)
     const inc = () => {
-        setCount(count + 1)
         dispatch(itemPlus({
-            counter: count,
+            counter: item.counter + 1,
             id: item.id
         }))
     }
     const dec = () => {
-        setCount(count - 1)
         dispatch(itemMinus({
-            counter: count,
+            counter: item.counter - 1,
             id: item.id
         }))
     }
-    // const itemTotal = count * item.price
-    // const itemTotal = item.counter * item.price
+
     return (
         <div className='shop-items'>
             <Table striped bordered hover size="sm">
